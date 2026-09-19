@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Garnier Color Naturals · Shade Finder</title>
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="leaf-tex"></div>
+
+<button id="fsBtn" class="fs-btn" aria-label="Toggle fullscreen">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+</button>
+
+<!-- ===================== LANDING ===================== -->
+<section id="screen-landing" class="screen active">
+  <div class="floaties" id="landFloat"></div>
+  <div class="landing-wrap">
+    <div class="landing-inner">
+      <div class="logo center">
+        <img src="assets/images/logo.png" alt="Garnier" />
+        <!-- <span class="sub">Color Naturals</span> -->
+      </div>
+      <!-- <p class="eyebrow">Match your shade with your personality</p> -->
+      <h1 class="headline">WELCOME TO THE CREATORS CONFERENCE<br>
+CHECK WHICH TRANSFORMATION YOU ARE <br>Made <em>For?</em></h1>
+      <p class="tagline">Pick your shade, we'll do the magic</p>
+      <div class="chips">
+        <span class="chip sans"><span class="dot"></span> 5 questions</span>
+        <span class="chip sans">⏱ about 30 seconds</span>
+      </div>
+      <button class="btn cta-pulse" onclick="startQuiz()">
+        Start Quiz
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+      <p class="note sans">Tap Start to begin</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== QUIZ ===================== -->
+<section id="screen-quiz" class="screen">
+  <div class="floaties" id="quizFloat"></div>
+  <div class="quiz-wrap">
+    <div class="logo center sm" style="margin-bottom:50px">
+      <img src="assets/images/logo.png" alt="Garnier" />
+    </div>
+    <div class="progress">
+      <p class="q-count" id="qCount">Question 1 of 5</p>
+      <div class="bar"><div class="bar-fill" id="qBar"></div></div>
+    </div>
+    <div class="q-zone q-anim" id="qWrap">
+      <h2 class="q-text" id="qText"></h2>
+      <div class="options" id="qOptions"></div>
+
+    </div>
+    
+<div class="back-btn-container">
+  <button class="back-btn-link" onclick="goBack()">Back</button>
+</div>    </div>
+
+      
+  </div>
+</section>
+
+<!-- ===================== RESULT ===================== -->
+<section id="screen-result" class="screen">
+  <div class="result-wrap">
+    <div class="logo center sm reveal r1" style="margin-bottom: 20px">
+      <img src="assets/images/logo.png" alt="Garnier" />
+    </div>
+    <p class="result-title reveal r1">This Shade Matches Your personality</p>
+
+    <div class="result-grid">
+  
+      <!-- Left: personality -->
+      <div class="card card-vibe reveal r3">
+        <p class="vibe-pre sans">You are</p>
+        <h3 class="vibe-title" id="vibeTitle"></h3>
+        <p class="vibe-line sans" id="vibeLine"></p>
+        <div class="oils">
+          <div class="oils-row">
+            <svg class="oils-badge" viewBox="0 0 120 150" xmlns="http://www.w3.org/2000/svg" aria-label="3 Natural Oils">
+              <defs><radialGradient id="oilg" cx="0.38" cy="0.3" r="0.85">
+                <stop offset="0" stop-color="#FBE596"/><stop offset="0.55" stop-color="#E7B73E"/><stop offset="1" stop-color="#B07E22"/>
+              </radialGradient></defs>
+              <path d="M60 8 C42 44 22 64 22 90 a38 38 0 0 0 76 0 C98 64 78 44 60 8Z" fill="url(#oilg)"/>
+              <ellipse cx="44" cy="76" rx="9" ry="16" fill="#fff" opacity=".35"/>
+              <text x="60" y="100" text-anchor="middle" font-family="Poppins,sans-serif" font-weight="800" font-size="52" fill="#0F4715">3</text>
+              <text x="60" y="122" text-anchor="middle" font-family="Poppins,sans-serif" font-weight="700" font-size="15" letter-spacing="1.5" fill="#0F4715">OILS</text>
+            </svg>
+            <span class="oils-title">3 Natural Oils</span>
+          </div>
+          <p class="oils-sub sans">Avocado · Almond · Olive — nourishes as it colours</p>
+        </div>
+      </div>
+
+      <!-- Right Side -->
+      <div class="card card-shade reveal r2">
+        <p class="shade-label sans">Your recommended shade</p>
+        <div class="shade-head">
+          <span class="shade-name" id="shadeName"></span>
+          <span class="shade-no" id="shadeNo"></span>
+        </div>
+        <img class="pack-img pop" id="packImg" alt="Garnier Color Naturals pack" />
+        <p class="pack-cap sans">Garnier Color Naturals · 100% grey coverage · 8 weeks of rich colour</p>
+      </div>
+    </div>
+
+    <button class="btn reveal r4" style="margin-top:26px" onclick="retake()">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v4h4"/></svg>
+      Start Again
+    </button>
+    <p class="reset-note sans reveal r4">Resetting for the next guest soon…</p>
+  </div>
+</section>
+
+<div class="confetti" id="confetti"></div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
