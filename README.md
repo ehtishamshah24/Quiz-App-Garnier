@@ -1,6 +1,6 @@
 # Garnier Color Naturals — Shade Finder Kiosk
 
-Interactive 5-question shade-finder for the Garnier Color Naturals Eid activation.
+Interactive 5-question shade-finder for the Garnier Color Naturals.
 Built for a landscape touchscreen kiosk (16:9, 1920×1080), fully offline.
 
 ## How to run
@@ -28,13 +28,5 @@ Poppins is used only for body sentences and fine print, for readability.
 - Questions, the 32-combination result mapping, shade names and result lines:
   data tables at the top of js/script.js.
 - Idle auto-reset timing + brand colours: :root in css/style.css.
-
-## Shade ↔ product pack mapping (please confirm with client)
-The quiz logic uses 8 shade codes, mapped to the 7 packs provided:
-    1  → box_1     4  → box_4     5  → box_5     7.3 → box_7_3
-    6.60 (Intense Red)   → box_6_66   (name matches)
-    5.32 (Caramel Brown) → box_5_3    (closest available)
-    3.16 (Burgundy)      → box_3_6    (closest available)
-    3    (Darkest Brown) → box_3_6    (no dedicated pack provided)
 To use a different pack: add the image to assets/images/shades/ and update the
 `box` value in the SHADES table in js/script.js.
